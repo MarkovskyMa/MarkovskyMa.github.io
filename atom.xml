@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://markovskyma.github.io</id>
     <title>Gridea</title>
-    <updated>2020-12-14T03:13:31.374Z</updated>
+    <updated>2020-12-14T05:26:15.601Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://markovskyma.github.io"/>
     <link rel="self" href="https://markovskyma.github.io/atom.xml"/>
@@ -11,29 +11,52 @@
     <icon>https://markovskyma.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
+        <title type="html"><![CDATA[天煞力扣]]></title>
+        <id>https://markovskyma.github.io/post/dead-leetcode/</id>
+        <link href="https://markovskyma.github.io/post/dead-leetcode/">
+        </link>
+        <updated>2020-12-14T04:54:09.000Z</updated>
+        <content type="html"><![CDATA[<p>这里是力扣上的做题记录，🤦‍。</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5669558"><label class="task-list-item-label" for="task-item-5669558"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
+</ul>
+<p>本页面主要用于提供目录索引。</p>
+<h1 id="链表">链表</h1>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Gridea]]></title>
         <id>https://markovskyma.github.io/post/gridea/</id>
         <link href="https://markovskyma.github.io/post/gridea/">
         </link>
         <updated>2020-12-14T02:27:41.000Z</updated>
-        <content type="html"><![CDATA[<p>一直想着建一个自己的博客，但是不知道怎么下手。一番调研，选择了Gridea这款软件，因为它简单（我懒）。<br>
+        <content type="html"><![CDATA[<h1 id="个人博客">个人博客</h1>
+<p>一直想着建一个自己的博客，但是不知道怎么下手。一番调研，选择了Gridea这款软件，因为它简单（我懒）。<br>
 简单调研了一下。所谓博客，本质上是一个网站，所以是需要正儿八经的服务端和客户端的。服务端就是服务器，客户端就是浏览器。对于硬核人士，当然是用自己的服务器，写自己的后端和前端，涉及到数据库、计算机网络、网页设计等等。对想省心省力者，可以用静态网页生成器，把生成的网页部署到支持静态网页渲染的代码仓库网站上。<br>
 具体技术上来举例：</p>
 <ul>
 <li>动态博客：租云服务器（或者自己的服务器配合内网穿透或者公网IP）、Python Flask等后端框架、Vue等前端。</li>
 <li>静态博客：GitHub Pages提供仓库和服务器、Hexo用作静态网页生成器。</li>
 </ul>
+<h1 id="gridea">Gridea</h1>
 <p>而对于我等懒人，一行代码都不想写，只想轻松写个人博客，CSDN、知乎专栏这种知识分享网站是个好选择。但是！本人又不想被平台绑架！（该死的小资情调）最终选择了Gridea这款软件。</p>
 <ul>
-<li>项目主页：[https://gridea.dev/]</li>
-<li>代码仓库：[https://github.com/getgridea/gridea]</li>
+<li>项目主页：<a href="">https://gridea.dev/</a></li>
+<li>代码仓库：<a href="">https://github.com/getgridea/gridea</a></li>
 </ul>
-<p>Gridea说白了就是把文字编辑器、静态网页生成器、静态网页发布工具统一在了一个软件当中。Gridea中可以直接用Markdown写文章，自动生成网页并且发布到服务器中。</p>
-<p>使用流程：</p>
+<p>Gridea说白了就是把文字编辑器、静态网页生成器、静态网页发布工具统一在了一个软件当中。Gridea中可以直接用Markdown写文章，自动生成网页并且发布到服务器中。<br>
+所以，Gridea的数据分为两部分：<strong>源数据和生成的网页数据</strong>。在设置项中可以更改源数据的保存位置，配合OneDrive之类的同步盘或者百度网盘之类的备份盘可以保存自己的数据。</p>
+<h2 id="使用流程">使用流程</h2>
 <ul>
 <li>GitHub创建博客仓库，注意要使用“用户名.github.io”作为仓库名称，用户名就是注册GitHub时候的用户名，而且得是公开仓库。</li>
 <li>生成GitHub用户的token，Settings -&gt; Developer Settings -&gt; Personal access tokens，只勾选repo相关的选项即可。Gridea可以通过这个token使用Github的API来管理博客仓库。</li>
 <li>Gridea软件中设置一下GitHub Pages选项即可。CNAME可以不用，分支填写master就行。</li>
+</ul>
+<h2 id="待解决问题">待解决问题</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-813224"><label class="task-list-item-label" for="task-item-813224"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7237601"><label class="task-list-item-label" for="task-item-7237601"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9638939"><label class="task-list-item-label" for="task-item-9638939"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
 </ul>
 ]]></content>
     </entry>

@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gridea | Gridea</title>
-<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1607915603613">
+<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1607923538196">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://markovskyma.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Gridea | Gridea - Atom Feed" href="https://markovskyma.github.io/atom.xml">
@@ -11,8 +11,9 @@
 
 
 
-    <meta name="description" content="一直想着建一个自己的博客，但是不知道怎么下手。一番调研，选择了Gridea这款软件，因为它简单（我懒）。
-简单调研了一下。所谓博客，本质上是一个网站，所以是需要正儿八经的服务端和客户端的。服务端就是服务器，客户端就是浏览器。对于硬核人士，当..." />
+    <meta name="description" content="个人博客
+一直想着建一个自己的博客，但是不知道怎么下手。一番调研，选择了Gridea这款软件，因为它简单（我懒）。
+简单调研了一下。所谓博客，本质上是一个网站，所以是需要正儿八经的服务端和客户端的。服务端就是服务器，客户端就是浏览器。对于硬..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -22,7 +23,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://markovskyma.github.io">
-  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1607915603613" alt="">
+  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1607923538196" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -82,36 +83,54 @@
                 2020-12-14
               </span>
               <span>
-                2 min read
+                3 min read
               </span>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>一直想着建一个自己的博客，但是不知道怎么下手。一番调研，选择了Gridea这款软件，因为它简单（我懒）。<br>
+                <h1 id="个人博客">个人博客</h1>
+<p>一直想着建一个自己的博客，但是不知道怎么下手。一番调研，选择了Gridea这款软件，因为它简单（我懒）。<br>
 简单调研了一下。所谓博客，本质上是一个网站，所以是需要正儿八经的服务端和客户端的。服务端就是服务器，客户端就是浏览器。对于硬核人士，当然是用自己的服务器，写自己的后端和前端，涉及到数据库、计算机网络、网页设计等等。对想省心省力者，可以用静态网页生成器，把生成的网页部署到支持静态网页渲染的代码仓库网站上。<br>
 具体技术上来举例：</p>
 <ul>
 <li>动态博客：租云服务器（或者自己的服务器配合内网穿透或者公网IP）、Python Flask等后端框架、Vue等前端。</li>
 <li>静态博客：GitHub Pages提供仓库和服务器、Hexo用作静态网页生成器。</li>
 </ul>
+<h1 id="gridea">Gridea</h1>
 <p>而对于我等懒人，一行代码都不想写，只想轻松写个人博客，CSDN、知乎专栏这种知识分享网站是个好选择。但是！本人又不想被平台绑架！（该死的小资情调）最终选择了Gridea这款软件。</p>
 <ul>
-<li>项目主页：[https://gridea.dev/]</li>
-<li>代码仓库：[https://github.com/getgridea/gridea]</li>
+<li>项目主页：<a href="">https://gridea.dev/</a></li>
+<li>代码仓库：<a href="">https://github.com/getgridea/gridea</a></li>
 </ul>
-<p>Gridea说白了就是把文字编辑器、静态网页生成器、静态网页发布工具统一在了一个软件当中。Gridea中可以直接用Markdown写文章，自动生成网页并且发布到服务器中。</p>
-<p>使用流程：</p>
+<p>Gridea说白了就是把文字编辑器、静态网页生成器、静态网页发布工具统一在了一个软件当中。Gridea中可以直接用Markdown写文章，自动生成网页并且发布到服务器中。<br>
+所以，Gridea的数据分为两部分：<strong>源数据和生成的网页数据</strong>。在设置项中可以更改源数据的保存位置，配合OneDrive之类的同步盘或者百度网盘之类的备份盘可以保存自己的数据。</p>
+<h2 id="使用流程">使用流程</h2>
 <ul>
 <li>GitHub创建博客仓库，注意要使用“用户名.github.io”作为仓库名称，用户名就是注册GitHub时候的用户名，而且得是公开仓库。</li>
 <li>生成GitHub用户的token，Settings -&gt; Developer Settings -&gt; Personal access tokens，只勾选repo相关的选项即可。Gridea可以通过这个token使用Github的API来管理博客仓库。</li>
 <li>Gridea软件中设置一下GitHub Pages选项即可。CNAME可以不用，分支填写master就行。</li>
 </ul>
+<h2 id="待解决问题">待解决问题</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-813224"><label class="task-list-item-label" for="task-item-813224"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7237601"><label class="task-list-item-label" for="task-item-7237601"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9638939"><label class="task-list-item-label" for="task-item-9638939"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
+</ul>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2">个人博客</a></li>
+<li><a href="#gridea">Gridea</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B">使用流程</a></li>
+<li><a href="#%E5%BE%85%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">待解决问题</a></li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
