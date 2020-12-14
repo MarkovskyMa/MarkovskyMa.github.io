@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://markovskyma.github.io</id>
     <title>Gridea</title>
-    <updated>2020-12-14T05:28:46.493Z</updated>
+    <updated>2020-12-14T11:00:51.228Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://markovskyma.github.io"/>
     <link rel="self" href="https://markovskyma.github.io/atom.xml"/>
@@ -11,6 +11,48 @@
     <icon>https://markovskyma.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
+        <title type="html"><![CDATA[图网络关系提取]]></title>
+        <id>https://markovskyma.github.io/post/tu-wang-luo-guan-xi-ti-qu/</id>
+        <link href="https://markovskyma.github.io/post/tu-wang-luo-guan-xi-ti-qu/">
+        </link>
+        <updated>2020-12-14T06:37:22.000Z</updated>
+        <content type="html"><![CDATA[<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-167835"><label class="task-list-item-label" for="task-item-167835"> 实验室的论文分享，贴过来</label></li>
+</ul>
+<h1 id="double-graph-based-reasoning-for-document-level-relation-extraction">Double Graph Based Reasoning for Document-level Relation Extraction</h1>
+<p>EMNLP 2020上的一篇文章，讲的是用图网络来做文档级别的关系提取。因为是文档级别，所以面临跨句子问题，关系推理问题。例如：</p>
+<pre><code>sentence 1: entity_1 &lt;-&gt; entity_2 (relation 1)
+sentence 2: entity_1 &lt;-&gt; entity_3 (relation 2)
+==&gt; entity_1&lt;-&gt; entity_3 (relation 3)
+</code></pre>
+<p>这里的关系提取是实体和实体之间的关系分类（数据集就是这样规定的），实体在文中的具体呈现是mention（单词序列，一个实体的不同mention可能实际的字符串不完全相同）。（另一种关系提取是对mention之间的关系进行分类，因为相同实体的mention在上下文中会有不同的意思）</p>
+<p><img src="https://markovskyma.github.io/post-images/1607936747561.png" alt="模型的整体架构" loading="lazy"><br>
+该模型的整体流程就是：</p>
+<ul>
+<li>编码层，对单词进行编码。</li>
+<li>Mention图的构建，以及节点更新。</li>
+<li>实体图的构建和路径表示。</li>
+<li>根据路径表示进行关系分类。</li>
+</ul>
+<p><img src="https://markovskyma.github.io/post-images/1607936946518.png" alt="Mention图" loading="lazy"><br>
+本模型的重点之一是Mention图。图中的节点为数据集中的mention标注和一个表示全文信息的虚拟节点。图上的边有三种：</p>
+<ul>
+<li>指向同一个实体的mention两两相连。</li>
+<li>同一个句子中的mention两两相连。</li>
+<li>所有mention节点和全文信息节点相连。<br>
+然后用GCN对节点表示进行更新。（其实这里的GCN就是一个简单的神经网络，权重代表的就是边）</li>
+</ul>
+<p><img src="https://markovskyma.github.io/post-images/1607940959670.png" alt="实体图" loading="lazy"><br>
+本文第二个重点是实体图。把Mention图中指向同一个实体的Mention表示做平均即为实体表示。<br>
+构建实体图的目的是进行路径表示，在图论中路径就是两个可连通节点之间的一条通路，在关系分类中路径表示可视为关系表示。<br>
+两个节点之间的路径有多条，而每条路径可分为多个有向边的集合。比如说：</p>
+<pre><code>a &lt;-&gt; b &lt;-&gt; c ==&gt; {a -&gt; b, b -&gt; a, b -&gt; c, c -&gt; b}
+</code></pre>
+<p>（两个实体之间肯定是连通的，不然判断什么关系呢？┑(￣Д ￣)┍。至于采用有向图的设计，这是作者的意思。）<br>
+<strong>所以，关系表示是各条路径表示的attention，路径表示是有向边表示的拼接，有向边表示是神经网络编码后的实体表示，实体表示是mention表示的平均池化。</strong></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[天煞力扣]]></title>
         <id>https://markovskyma.github.io/post/dead-leetcode/</id>
         <link href="https://markovskyma.github.io/post/dead-leetcode/">
@@ -18,7 +60,7 @@
         <updated>2020-12-14T04:54:09.000Z</updated>
         <content type="html"><![CDATA[<p>这里是力扣上的做题记录，🤦‍。</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1648363"><label class="task-list-item-label" for="task-item-1648363"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7375246"><label class="task-list-item-label" for="task-item-7375246"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
 </ul>
 <p>本页面主要用于提供目录索引。</p>
 <h1 id="链表">链表</h1>
@@ -54,9 +96,9 @@
 </ul>
 <h2 id="待解决问题">待解决问题</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5865452"><label class="task-list-item-label" for="task-item-5865452"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1394131"><label class="task-list-item-label" for="task-item-1394131"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1561763"><label class="task-list-item-label" for="task-item-1561763"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7592467"><label class="task-list-item-label" for="task-item-7592467"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2224777"><label class="task-list-item-label" for="task-item-2224777"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8891933"><label class="task-list-item-label" for="task-item-8891933"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
 </ul>
 ]]></content>
     </entry>
