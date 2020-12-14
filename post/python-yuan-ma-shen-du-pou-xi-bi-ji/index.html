@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python源码深度剖析笔记 | Gridea</title>
-<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1607961608435">
+<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1607961659200">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://markovskyma.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Python源码深度剖析笔记 | Gridea - Atom Feed" href="https://markovskyma.github.io/atom.xml">
@@ -31,7 +31,7 @@ Python确实是一门优雅简洁的语言，这里记录的是《Python源码�
       <div class="main-content">
         <div class="site-header">
   <a href="https://markovskyma.github.io">
-  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1607961608435" alt="">
+  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1607961659200" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -150,7 +150,7 @@ Python确实是一门优雅简洁的语言，这里记录的是《Python源码�
 <li>自定义类同样满足这个情况，包括<code>object</code>和<code>type</code>这两个类都是这样。</li>
 <li>数字1在Python就是一个身份：对象，int是它的类型。</li>
 </ol>
-<h1 id="对象只是名字">对象只是名字</h1>
+<h2 id="对象只是名字">对象只是名字</h2>
 <h1 id="内建对象">内建对象</h1>
 <p>本章逐一分析Python的内建类型，比如说整型、浮点型、字符串、列表、字典等，看看它们在Python虚拟机层面是如何用C语言实现的。</p>
 <h1 id="虚拟机">虚拟机</h1>
@@ -167,8 +167,11 @@ Python确实是一门优雅简洁的语言，这里记录的是《Python源码�
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li><a href="#%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B">对象模型</a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B">对象模型</a>
+<ul>
 <li><a href="#%E5%AF%B9%E8%B1%A1%E5%8F%AA%E6%98%AF%E5%90%8D%E5%AD%97">对象只是名字</a></li>
+</ul>
+</li>
 <li><a href="#%E5%86%85%E5%BB%BA%E5%AF%B9%E8%B1%A1">内建对象</a></li>
 <li><a href="#%E8%99%9A%E6%8B%9F%E6%9C%BA">虚拟机</a></li>
 <li><a href="#%E5%87%BD%E6%95%B0%E6%9C%BA%E5%88%B6">函数机制</a></li>
