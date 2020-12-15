@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://markovskyma.github.io</id>
     <title>Gridea</title>
-    <updated>2020-12-14T16:01:04.313Z</updated>
+    <updated>2020-12-15T01:20:35.955Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://markovskyma.github.io"/>
     <link rel="self" href="https://markovskyma.github.io/atom.xml"/>
@@ -19,7 +19,7 @@
         <content type="html"><![CDATA[<blockquote>
 <p>人生苦短，你该用啥？</p>
 </blockquote>
-<p>Python确实是一门优雅简洁的语言，这里记录的是《Python源码深度剖析》这门专栏的笔记。<br>
+<p>Python确实是一门优雅简洁的语言。这里是《Python源码深度剖析》这门专栏的笔记。（都是自己看过之后的总结，不会直接搬过来，毕竟原专栏是收费的。另外：技术菜鸟，轻喷(✿◡‿◡)）<br>
 链接：<a href="">https://www.imooc.com/read/76</a></p>
 <p>首先列一个专栏目录：</p>
 <ol>
@@ -36,15 +36,13 @@
 <h1 id="对象模型">对象模型</h1>
 <p>本章讲Python对象模型。**首先，什么是对象模型？**简单说就是Python中的对象机制设计。<br>
 面向对象理论中类和对象是区分开的。类是一系列对象的抽象，对象是类的一个实例。Python语法层面其实也是区分了类型和实例（类和对象），但是却把它们都视为对象。（绕晕了吧(((φ(◎ロ◎;)φ)))）</p>
+<h2 id="对象-类型和类">对象、类型和类</h2>
+<p>几个有用的函数和对象：</p>
 <ul>
-<li>那么Python的对象和类型关系是什么？<br>
-有几个函数帮助判断：</li>
 <li><code>type() or __class__</code>：获取对象的类型，不追溯父类。</li>
 <li><code>issubclass()</code>：判断两个类是否为继承关系，<strong>自己可以是自己的子类（int是int的子类）</strong></li>
-<li><code>isinstance()</code>：判断对象是否为类的实例，可以向父类追溯。</li>
-</ul>
-<p>直接看官方文档的说法：</p>
-<ul>
+<li><code>isinstance()</code>：判断对象是否为类的实例，<strong>可以向父类追溯</strong>。<br>
+还有：</li>
 <li><code>object</code>是所有类的基类，所谓base class。另外，<code>object()</code>还是一个内置函数，返回一个对象。</li>
 <li><code>type</code>是一个类型，是对所有Python对象类型的一个抽象，毕竟所有对象都会有类型。所以type的实例就成为类型对象，它表示一个类型。</li>
 </ul>
@@ -55,20 +53,34 @@
 <ol>
 <li>作为类，它有基类，向上追溯就是<code>object</code>类。</li>
 <li>作为类型，它可以用于创建对象（实例）。</li>
-<li>作为对象，它有类型（这里的<code>type</code>就是<code>__class__</code>），这个类就是<code>type类</code>。</li>
+<li>作为对象，它是某个类的实例，所以它有名为类型的属性（<code>__class__</code>），这个类就是<code>type类</code>。</li>
 </ol>
 </li>
 <li>举个栗子：<code>int</code>这个内置类型：
 <ol>
 <li>作为类，可以追溯基类到<code>object</code>。</li>
-<li>作为类型，各种整数都是它的实例。</li>
+<li>作为类型，各种整数对象都是它的实例。</li>
 <li>作为对象，它的类型就是<code>type</code>。</li>
 </ol>
 </li>
 <li>自定义类同样满足这个情况，包括<code>object</code>和<code>type</code>这两个类都是这样。</li>
 <li>数字1在Python就是一个身份：对象，int是它的类型。</li>
 </ol>
-<h2 id="对象只是名字">对象只是名字</h2>
+<h2 id="变量和对象可变对象和不可变对象定长对象与不定长对象">变量和对象，可变对象和不可变对象，定长对象与不定长对象</h2>
+<p>变量在Python中只是对象的一个名字，所以<code>a = 10; b = a</code>中<code>a</code>和<code>b</code>其实指向相同一个整数对象（同一片内存），用<code>id()</code>函数可以判断。<br>
+对象在Python中分为可变对象和不可变对象。例如：</p>
+<ul>
+<li>整数对象不可变，所以<code>a += 1</code>实际上是把<code>a</code>指向了一个新的对象，其值为<code>a+1</code>。</li>
+<li>列表对象可变，所以<code>list.append()</code>直接修改的就是列表对象。
+<ul>
+<li>列表作为内置类型，在虚拟机中为一个Ｃ语言实现的动态数组，变量名指向列表头部。<br>
+对象也分为定长和不定长，即对象的大小是否固定，用<code>sys.getsizeof()</code>可获取对象大小。例如：</li>
+</ul>
+</li>
+<li>整数、字符串都是不定长对象，因为它们需要表示任意长度的整数和字符串。</li>
+<li>浮点数是定长对象，因为浮点数在虚拟机中对应一个C语言中的double。而且浮点数的原理就是在固定位数之内通过变换小数点的位置表示不同大小的小数。</li>
+</ul>
+<h2 id="窥探源码">窥探源码</h2>
 <h1 id="内建对象">内建对象</h1>
 <p>本章逐一分析Python的内建类型，比如说整型、浮点型、字符串、列表、字典等，看看它们在Python虚拟机层面是如何用C语言实现的。</p>
 <h1 id="虚拟机">虚拟机</h1>
@@ -90,7 +102,7 @@
         </link>
         <updated>2020-12-14T06:37:22.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4657742"><label class="task-list-item-label" for="task-item-4657742"> 实验室的论文分享，贴过来</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2652025"><label class="task-list-item-label" for="task-item-2652025"> 实验室的论文分享，贴过来</label></li>
 </ul>
 <h1 id="double-graph-based-reasoning-for-document-level-relation-extraction">Double Graph Based Reasoning for Document-level Relation Extraction</h1>
 <p>EMNLP 2020上的一篇文章，讲的是用图网络来做文档级别的关系提取。因为是文档级别，所以面临跨句子问题，关系推理问题。例如：</p>
@@ -133,7 +145,7 @@ sentence 2: entity_1 &lt;-&gt; entity_3 (relation 2)
         <updated>2020-12-14T04:54:09.000Z</updated>
         <content type="html"><![CDATA[<p>这里是力扣上的做题记录，🤦‍。</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5668254"><label class="task-list-item-label" for="task-item-5668254"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5869852"><label class="task-list-item-label" for="task-item-5869852"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
 </ul>
 <p>本页面主要用于提供目录索引。</p>
 <h1 id="链表">链表</h1>
@@ -169,9 +181,9 @@ sentence 2: entity_1 &lt;-&gt; entity_3 (relation 2)
 </ul>
 <h2 id="待解决问题">待解决问题</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8532370"><label class="task-list-item-label" for="task-item-8532370"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1816142"><label class="task-list-item-label" for="task-item-1816142"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1560096"><label class="task-list-item-label" for="task-item-1560096"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4321298"><label class="task-list-item-label" for="task-item-4321298"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8333138"><label class="task-list-item-label" for="task-item-8333138"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5375801"><label class="task-list-item-label" for="task-item-5375801"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
 </ul>
 ]]></content>
     </entry>
