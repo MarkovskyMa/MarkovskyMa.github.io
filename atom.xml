@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://markovskyma.github.io</id>
     <title>Gridea</title>
-    <updated>2020-12-16T13:53:05.166Z</updated>
+    <updated>2020-12-16T15:32:16.935Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://markovskyma.github.io"/>
     <link rel="self" href="https://markovskyma.github.io/atom.xml"/>
@@ -38,10 +38,11 @@
 Dockerfile资料：<a href="">https://www.runoob.com/docker/docker-dockerfile.html</a></p>
 <p>要明白，Docker的目的是简单的打包环境并且部署，所以只有从Dockerfile构建image，没有从image导出Dockerfile。</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9826301"><label class="task-list-item-label" for="task-item-9826301"> 了解一下KVM、PVE、Kubernetes、QEMU、VBox、Hyper-V、Vargrant。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9664111"><label class="task-list-item-label" for="task-item-9664111"> 了解一下KVM、PVE、Kubernetes、QEMU、VBox、Hyper-V、Vargrant。</label></li>
 </ul>
 <p>这篇简短的文章解答了一个关键性的问题：容器和虚拟机的区别。<br>
 <a href="https://zhuanlan.zhihu.com/p/165257806">Docker容器的&quot;单进程模型&quot; - Kevin Yan的文章 - 知乎</a><br>
+<a href="https://v2ex.com/t/661334">还有这个v2ex上地讨论</a><br>
 虚拟机是一个完整的系统，系统在其中管理着其中的各种线程，进入这个系统之后就和宿主机没啥关系了。<br>
 容器是宿主机上隔离出来的一个空间，看起来好像是一个虚拟机，但实际上这个系统只是宿主机上的一个进程。正因为是宿主机上的单进程，所以容器比虚拟机更轻量。<br>
 容器启动时执行程序a，而a由启动了程序b和c。程序a的进程就是docker的主进程，因为docker的能力仅限于维持主进程，所以b和c的状态如何docker是不知道的。<br>
@@ -56,7 +57,7 @@ Dockerfile资料：<a href="">https://www.runoob.com/docker/docker-dockerfile.ht
         </link>
         <updated>2020-12-14T06:37:22.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5017910"><label class="task-list-item-label" for="task-item-5017910"> 实验室的论文分享，贴过来</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7916584"><label class="task-list-item-label" for="task-item-7916584"> 实验室的论文分享，贴过来</label></li>
 </ul>
 <h1 id="double-graph-based-reasoning-for-document-level-relation-extraction">Double Graph Based Reasoning for Document-level Relation Extraction</h1>
 <p>EMNLP 2020上的一篇文章，讲的是用图网络来做文档级别的关系提取。因为是文档级别，所以面临跨句子问题，关系推理问题。例如：</p>
@@ -99,7 +100,7 @@ sentence 2: entity_1 &lt;-&gt; entity_3 (relation 2)
         <updated>2020-12-14T04:54:09.000Z</updated>
         <content type="html"><![CDATA[<p>这里是力扣上的做题记录，🤦‍。</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5175260"><label class="task-list-item-label" for="task-item-5175260"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7907372"><label class="task-list-item-label" for="task-item-7907372"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
 </ul>
 <p>本页面主要用于提供目录索引。</p>
 <h1 id="链表">链表</h1>
@@ -135,9 +136,9 @@ sentence 2: entity_1 &lt;-&gt; entity_3 (relation 2)
 </ul>
 <h2 id="待解决问题">待解决问题</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9156312"><label class="task-list-item-label" for="task-item-9156312"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7138957"><label class="task-list-item-label" for="task-item-7138957"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1436133"><label class="task-list-item-label" for="task-item-1436133"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7343793"><label class="task-list-item-label" for="task-item-7343793"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4323393"><label class="task-list-item-label" for="task-item-4323393"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2987188"><label class="task-list-item-label" for="task-item-2987188"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
 </ul>
 ]]></content>
     </entry>

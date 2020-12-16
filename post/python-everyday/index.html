@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>今日坑，何日填？ | Gridea</title>
-<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1608126780250">
+<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1608132733725">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://markovskyma.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="今日坑，何日填？ | Gridea - Atom Feed" href="https://markovskyma.github.io/atom.xml">
@@ -28,7 +28,7 @@ NumPy中的非原地操作会导致新开辟内存和复制对象，所以就很
       <div class="main-content">
         <div class="site-header">
   <a href="https://markovskyma.github.io">
-  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1608126780250" alt="">
+  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1608132733725" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -117,10 +117,11 @@ NumPy中的非原地操作会导致新开辟内存和复制对象，所以就很
 Dockerfile资料：<a href="">https://www.runoob.com/docker/docker-dockerfile.html</a></p>
 <p>要明白，Docker的目的是简单的打包环境并且部署，所以只有从Dockerfile构建image，没有从image导出Dockerfile。</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9826301"><label class="task-list-item-label" for="task-item-9826301"> 了解一下KVM、PVE、Kubernetes、QEMU、VBox、Hyper-V、Vargrant。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9664111"><label class="task-list-item-label" for="task-item-9664111"> 了解一下KVM、PVE、Kubernetes、QEMU、VBox、Hyper-V、Vargrant。</label></li>
 </ul>
 <p>这篇简短的文章解答了一个关键性的问题：容器和虚拟机的区别。<br>
 <a href="https://zhuanlan.zhihu.com/p/165257806">Docker容器的&quot;单进程模型&quot; - Kevin Yan的文章 - 知乎</a><br>
+<a href="https://v2ex.com/t/661334">还有这个v2ex上地讨论</a><br>
 虚拟机是一个完整的系统，系统在其中管理着其中的各种线程，进入这个系统之后就和宿主机没啥关系了。<br>
 容器是宿主机上隔离出来的一个空间，看起来好像是一个虚拟机，但实际上这个系统只是宿主机上的一个进程。正因为是宿主机上的单进程，所以容器比虚拟机更轻量。<br>
 容器启动时执行程序a，而a由启动了程序b和c。程序a的进程就是docker的主进程，因为docker的能力仅限于维持主进程，所以b和c的状态如何docker是不知道的。<br>
