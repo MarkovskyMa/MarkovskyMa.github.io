@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>今日坑，何日填？ | Gridea</title>
-<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1608109669047">
+<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1608121234547">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://markovskyma.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="今日坑，何日填？ | Gridea - Atom Feed" href="https://markovskyma.github.io/atom.xml">
@@ -28,7 +28,7 @@ NumPy中的非原地操作会导致新开辟内存和复制对象，所以就很
       <div class="main-content">
         <div class="site-header">
   <a href="https://markovskyma.github.io">
-  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1608109669047" alt="">
+  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1608121234547" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -108,9 +108,17 @@ NumPy中的非原地操作会导致新开辟内存和复制对象，所以就很
 </li>
 </ul>
 <p>Docker<br>
-今日接触到Docker。Docker并不神奇，本质上就是一个小型Linux虚拟机(￣▽￣)&quot;。<br>
+今日接触到Docker。Docker并不神奇，粗暴理解就是一个轻量级Linux虚拟机(￣▽￣)&quot;。<br>
+（<strong>好像不是这样，Docker似乎更像是隔离了宿主机中的运行环境的容器</strong>）<br>
 所以该如何用Docker来创建TensorFlow的环境呢？TF官网给出的方法报错了！因为服务器上的驱动不支持最新的CUDA11，只支持到CUDA10.2。拉取了10.2的CUDA Docker镜像，成功确认了CUDA版本，但是TensorFlow还是错误！还是不支持CUDA10.2！（谷歌(￣▽￣)&quot;）<br>
-一番搜索发现：可以自己创建镜像（写Dockerfile），运行容器的时候指定运行时为nvidia即可。（具体操作尚未成功，待更新……）</p>
+一番搜索发现：可以自己创建镜像（写Dockerfile），运行容器的时候指定运行时为nvidia即可。（具体操作尚未成功，待更新……）<br>
+看看TensorFlow Docker 镜像的Docker layer：<a href="https://hub.docker.com/layers/tensorflow/tensorflow/latest-gpu/images/sha256-67dbafa3e7918a3efc67db49063aebdb282a0ebb1c124b7ca0db18207e6d7a22?context=explore">在这里</a> 就知道要求了CUDA的版本为11.</p>
+<p>Docker中Dockerfile用来构建image镜像，运行的image就是container容器。Kubernetes（k8s）是用来管理大规模容器的。<br>
+Dockerfile资料：<a href="">https://www.runoob.com/docker/docker-dockerfile.html</a></p>
+<p>要明白，Docker的目的是简单的打包环境并且部署，所以只有从Dockerfile构建image，没有从image导出Dockerfile。</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5486912"><label class="task-list-item-label" for="task-item-5486912"> 了解一下KVM、PVE、Kubernetes、QEMU、VBox、Hyper-V。</label></li>
+</ul>
 
               </div>
               <div class="toc-container">

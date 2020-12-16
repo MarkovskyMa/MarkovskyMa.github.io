@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://markovskyma.github.io</id>
     <title>Gridea</title>
-    <updated>2020-12-16T09:07:51.031Z</updated>
+    <updated>2020-12-16T12:20:36.685Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://markovskyma.github.io"/>
     <link rel="self" href="https://markovskyma.github.io/atom.xml"/>
@@ -29,9 +29,17 @@
 </li>
 </ul>
 <p>Docker<br>
-今日接触到Docker。Docker并不神奇，本质上就是一个小型Linux虚拟机(￣▽￣)&quot;。<br>
+今日接触到Docker。Docker并不神奇，粗暴理解就是一个轻量级Linux虚拟机(￣▽￣)&quot;。<br>
+（<strong>好像不是这样，Docker似乎更像是隔离了宿主机中的运行环境的容器</strong>）<br>
 所以该如何用Docker来创建TensorFlow的环境呢？TF官网给出的方法报错了！因为服务器上的驱动不支持最新的CUDA11，只支持到CUDA10.2。拉取了10.2的CUDA Docker镜像，成功确认了CUDA版本，但是TensorFlow还是错误！还是不支持CUDA10.2！（谷歌(￣▽￣)&quot;）<br>
-一番搜索发现：可以自己创建镜像（写Dockerfile），运行容器的时候指定运行时为nvidia即可。（具体操作尚未成功，待更新……）</p>
+一番搜索发现：可以自己创建镜像（写Dockerfile），运行容器的时候指定运行时为nvidia即可。（具体操作尚未成功，待更新……）<br>
+看看TensorFlow Docker 镜像的Docker layer：<a href="https://hub.docker.com/layers/tensorflow/tensorflow/latest-gpu/images/sha256-67dbafa3e7918a3efc67db49063aebdb282a0ebb1c124b7ca0db18207e6d7a22?context=explore">在这里</a> 就知道要求了CUDA的版本为11.</p>
+<p>Docker中Dockerfile用来构建image镜像，运行的image就是container容器。Kubernetes（k8s）是用来管理大规模容器的。<br>
+Dockerfile资料：<a href="">https://www.runoob.com/docker/docker-dockerfile.html</a></p>
+<p>要明白，Docker的目的是简单的打包环境并且部署，所以只有从Dockerfile构建image，没有从image导出Dockerfile。</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5486912"><label class="task-list-item-label" for="task-item-5486912"> 了解一下KVM、PVE、Kubernetes、QEMU、VBox、Hyper-V。</label></li>
+</ul>
 ]]></content>
     </entry>
     <entry>
@@ -41,7 +49,7 @@
         </link>
         <updated>2020-12-14T06:37:22.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2437696"><label class="task-list-item-label" for="task-item-2437696"> 实验室的论文分享，贴过来</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9085796"><label class="task-list-item-label" for="task-item-9085796"> 实验室的论文分享，贴过来</label></li>
 </ul>
 <h1 id="double-graph-based-reasoning-for-document-level-relation-extraction">Double Graph Based Reasoning for Document-level Relation Extraction</h1>
 <p>EMNLP 2020上的一篇文章，讲的是用图网络来做文档级别的关系提取。因为是文档级别，所以面临跨句子问题，关系推理问题。例如：</p>
@@ -84,7 +92,7 @@ sentence 2: entity_1 &lt;-&gt; entity_3 (relation 2)
         <updated>2020-12-14T04:54:09.000Z</updated>
         <content type="html"><![CDATA[<p>这里是力扣上的做题记录，🤦‍。</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-956273"><label class="task-list-item-label" for="task-item-956273"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-359578"><label class="task-list-item-label" for="task-item-359578"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
 </ul>
 <p>本页面主要用于提供目录索引。</p>
 <h1 id="链表">链表</h1>
@@ -120,9 +128,9 @@ sentence 2: entity_1 &lt;-&gt; entity_3 (relation 2)
 </ul>
 <h2 id="待解决问题">待解决问题</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2881777"><label class="task-list-item-label" for="task-item-2881777"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5068555"><label class="task-list-item-label" for="task-item-5068555"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4424450"><label class="task-list-item-label" for="task-item-4424450"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9026819"><label class="task-list-item-label" for="task-item-9026819"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1404733"><label class="task-list-item-label" for="task-item-1404733"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-167460"><label class="task-list-item-label" for="task-item-167460"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
 </ul>
 ]]></content>
     </entry>
