@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://markovskyma.github.io</id>
     <title>Gridea</title>
-    <updated>2020-12-15T01:20:35.955Z</updated>
+    <updated>2020-12-16T09:07:51.031Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://markovskyma.github.io"/>
     <link rel="self" href="https://markovskyma.github.io/atom.xml"/>
@@ -11,88 +11,27 @@
     <icon>https://markovskyma.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
-        <title type="html"><![CDATA[Python源码深度剖析笔记]]></title>
-        <id>https://markovskyma.github.io/post/python-yuan-ma-shen-du-pou-xi-bi-ji/</id>
-        <link href="https://markovskyma.github.io/post/python-yuan-ma-shen-du-pou-xi-bi-ji/">
+        <title type="html"><![CDATA[今日坑，何日填？]]></title>
+        <id>https://markovskyma.github.io/post/python-everyday/</id>
+        <link href="https://markovskyma.github.io/post/python-everyday/">
         </link>
-        <updated>2020-12-14T11:26:06.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>人生苦短，你该用啥？</p>
-</blockquote>
-<p>Python确实是一门优雅简洁的语言。这里是《Python源码深度剖析》这门专栏的笔记。（都是自己看过之后的总结，不会直接搬过来，毕竟原专栏是收费的。另外：技术菜鸟，轻喷(✿◡‿◡)）<br>
-链接：<a href="">https://www.imooc.com/read/76</a></p>
-<p>首先列一个专栏目录：</p>
-<ol>
-<li>开篇</li>
-<li>对象模型</li>
-<li>内建对象</li>
-<li>虚拟机</li>
-<li>函数机制</li>
-<li>类机制</li>
-<li>生成器与协程</li>
-<li>内存管理机制</li>
-<li>总结</li>
-</ol>
-<h1 id="对象模型">对象模型</h1>
-<p>本章讲Python对象模型。**首先，什么是对象模型？**简单说就是Python中的对象机制设计。<br>
-面向对象理论中类和对象是区分开的。类是一系列对象的抽象，对象是类的一个实例。Python语法层面其实也是区分了类型和实例（类和对象），但是却把它们都视为对象。（绕晕了吧(((φ(◎ロ◎;)φ)))）</p>
-<h2 id="对象-类型和类">对象、类型和类</h2>
-<p>几个有用的函数和对象：</p>
+        <updated>2020-12-16T04:23:09.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="20201216">2020/12/16</h1>
+<p>Python标准库阅读：<a href="https://docs.python.org/zh-cn/3/library/datatypes.html">数据类型</a></p>
+<p>NumPy中的非原地操作会导致新开辟内存和复制对象，所以就很慢！这两天被这个坑了很久！</p>
+<p>同时发现一个逻辑错误：</p>
 <ul>
-<li><code>type() or __class__</code>：获取对象的类型，不追溯父类。</li>
-<li><code>issubclass()</code>：判断两个类是否为继承关系，<strong>自己可以是自己的子类（int是int的子类）</strong></li>
-<li><code>isinstance()</code>：判断对象是否为类的实例，<strong>可以向父类追溯</strong>。<br>
-还有：</li>
-<li><code>object</code>是所有类的基类，所谓base class。另外，<code>object()</code>还是一个内置函数，返回一个对象。</li>
-<li><code>type</code>是一个类型，是对所有Python对象类型的一个抽象，毕竟所有对象都会有类型。所以type的实例就成为类型对象，它表示一个类型。</li>
-</ul>
-<p>根据这个解释：</p>
-<ol>
-<li>Python一切皆对象，对象有类型（实例有类），类有基类。所以所有对象都是object基类的实例。</li>
-<li>Python中的类都有三层身份：类、类型和对象（class, type, object）：
-<ol>
-<li>作为类，它有基类，向上追溯就是<code>object</code>类。</li>
-<li>作为类型，它可以用于创建对象（实例）。</li>
-<li>作为对象，它是某个类的实例，所以它有名为类型的属性（<code>__class__</code>），这个类就是<code>type类</code>。</li>
-</ol>
-</li>
-<li>举个栗子：<code>int</code>这个内置类型：
-<ol>
-<li>作为类，可以追溯基类到<code>object</code>。</li>
-<li>作为类型，各种整数对象都是它的实例。</li>
-<li>作为对象，它的类型就是<code>type</code>。</li>
-</ol>
-</li>
-<li>自定义类同样满足这个情况，包括<code>object</code>和<code>type</code>这两个类都是这样。</li>
-<li>数字1在Python就是一个身份：对象，int是它的类型。</li>
-</ol>
-<h2 id="变量和对象可变对象和不可变对象定长对象与不定长对象">变量和对象，可变对象和不可变对象，定长对象与不定长对象</h2>
-<p>变量在Python中只是对象的一个名字，所以<code>a = 10; b = a</code>中<code>a</code>和<code>b</code>其实指向相同一个整数对象（同一片内存），用<code>id()</code>函数可以判断。<br>
-对象在Python中分为可变对象和不可变对象。例如：</p>
+<li>一个不等长列表，需要把内容填到NumPy数组中，并且要取平均值。
 <ul>
-<li>整数对象不可变，所以<code>a += 1</code>实际上是把<code>a</code>指向了一个新的对象，其值为<code>a+1</code>。</li>
-<li>列表对象可变，所以<code>list.append()</code>直接修改的就是列表对象。
-<ul>
-<li>列表作为内置类型，在虚拟机中为一个Ｃ语言实现的动态数组，变量名指向列表头部。<br>
-对象也分为定长和不定长，即对象的大小是否固定，用<code>sys.getsizeof()</code>可获取对象大小。例如：</li>
+<li>先确定数组大小后，创建zeros数组，然后往数组中填（复制）列表内容。最后用mean函数求固定轴（axis）上的平均值。（这样是错的！！因为嵌套的多维列表形状是不固定的，不能直接mean，需要累加后求平均，避免0值的干扰。）</li>
+<li>同时，mean函数会创建一个新对象（新的内存空间），所以不如直接原地操作累加再作除法快！</li>
 </ul>
 </li>
-<li>整数、字符串都是不定长对象，因为它们需要表示任意长度的整数和字符串。</li>
-<li>浮点数是定长对象，因为浮点数在虚拟机中对应一个C语言中的double。而且浮点数的原理就是在固定位数之内通过变换小数点的位置表示不同大小的小数。</li>
 </ul>
-<h2 id="窥探源码">窥探源码</h2>
-<h1 id="内建对象">内建对象</h1>
-<p>本章逐一分析Python的内建类型，比如说整型、浮点型、字符串、列表、字典等，看看它们在Python虚拟机层面是如何用C语言实现的。</p>
-<h1 id="虚拟机">虚拟机</h1>
-<p>Python是运行在Python虚拟机上的，所以本章节讲Python虚拟机、字节码、GIL以及Python模块加载机制。</p>
-<h1 id="函数机制">函数机制</h1>
-<p>Python中函数也是对象，这一章讲的就是函数在讲虚拟机中的函数对象、调用栈，以及高阶函数、装饰器等内容。</p>
-<h1 id="类机制">类机制</h1>
-<p>Python作为一个完全的面向对象语言，“类”自然是不可或缺的。这一章就分析类在虚拟机中的实现方法，配合继承、属性描述符、元类等内容。</p>
-<h1 id="生成器与协程">生成器与协程</h1>
-<p>生成器是Python的一大特点，和协程配合可以实现高并发。本章讲虚拟机中生成器和协程的实现原理。</p>
-<h1 id="内存管理机制">内存管理机制</h1>
-<p>本章讲Python的内存管理机制，主要是针对垃圾回收机制。</p>
+<p>Docker<br>
+今日接触到Docker。Docker并不神奇，本质上就是一个小型Linux虚拟机(￣▽￣)&quot;。<br>
+所以该如何用Docker来创建TensorFlow的环境呢？TF官网给出的方法报错了！因为服务器上的驱动不支持最新的CUDA11，只支持到CUDA10.2。拉取了10.2的CUDA Docker镜像，成功确认了CUDA版本，但是TensorFlow还是错误！还是不支持CUDA10.2！（谷歌(￣▽￣)&quot;）<br>
+一番搜索发现：可以自己创建镜像（写Dockerfile），运行容器的时候指定运行时为nvidia即可。（具体操作尚未成功，待更新……）</p>
 ]]></content>
     </entry>
     <entry>
@@ -102,7 +41,7 @@
         </link>
         <updated>2020-12-14T06:37:22.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2652025"><label class="task-list-item-label" for="task-item-2652025"> 实验室的论文分享，贴过来</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2437696"><label class="task-list-item-label" for="task-item-2437696"> 实验室的论文分享，贴过来</label></li>
 </ul>
 <h1 id="double-graph-based-reasoning-for-document-level-relation-extraction">Double Graph Based Reasoning for Document-level Relation Extraction</h1>
 <p>EMNLP 2020上的一篇文章，讲的是用图网络来做文档级别的关系提取。因为是文档级别，所以面临跨句子问题，关系推理问题。例如：</p>
@@ -145,7 +84,7 @@ sentence 2: entity_1 &lt;-&gt; entity_3 (relation 2)
         <updated>2020-12-14T04:54:09.000Z</updated>
         <content type="html"><![CDATA[<p>这里是力扣上的做题记录，🤦‍。</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5869852"><label class="task-list-item-label" for="task-item-5869852"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-956273"><label class="task-list-item-label" for="task-item-956273"> 首先把前三百题做完。编程语言就用Python、C和C++。</label></li>
 </ul>
 <p>本页面主要用于提供目录索引。</p>
 <h1 id="链表">链表</h1>
@@ -181,9 +120,9 @@ sentence 2: entity_1 &lt;-&gt; entity_3 (relation 2)
 </ul>
 <h2 id="待解决问题">待解决问题</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4321298"><label class="task-list-item-label" for="task-item-4321298"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8333138"><label class="task-list-item-label" for="task-item-8333138"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5375801"><label class="task-list-item-label" for="task-item-5375801"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2881777"><label class="task-list-item-label" for="task-item-2881777"> 怎么对文章进行归档？没搞明白这个逻辑。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5068555"><label class="task-list-item-label" for="task-item-5068555"> 官方何时能够支持Gitee Pages的部署呢？毕竟GitHub服务器在国外，时常抽风。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4424450"><label class="task-list-item-label" for="task-item-4424450"> 评论功能，官方提供了评论功能，但还没有研究过。</label></li>
 </ul>
 ]]></content>
     </entry>
