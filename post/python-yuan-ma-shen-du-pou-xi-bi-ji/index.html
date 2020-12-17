@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python源码深度剖析笔记 | Gridea</title>
-<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1607995231043">
+<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1608215077986">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://markovskyma.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Python源码深度剖析笔记 | Gridea - Atom Feed" href="https://markovskyma.github.io/atom.xml">
@@ -25,7 +25,7 @@ Python确实是一门优雅简洁的语言。这里是《Python源码深度剖�
       <div class="main-content">
         <div class="site-header">
   <a href="https://markovskyma.github.io">
-  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1607995231043" alt="">
+  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1608215077986" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -157,6 +157,12 @@ Python确实是一门优雅简洁的语言。这里是《Python源码深度剖�
 <li>浮点数是定长对象，因为浮点数在虚拟机中对应一个C语言中的double。而且浮点数的原理就是在固定位数之内通过变换小数点的位置表示不同大小的小数。</li>
 </ul>
 <h2 id="窥探源码">窥探源码</h2>
+<ul>
+<li>PyObject, PyVarObject</li>
+<li>PyTypeObject</li>
+<li>PyType_Type</li>
+<li>PyBaseObject_Type</li>
+</ul>
 <h1 id="内建对象">内建对象</h1>
 <p>本章逐一分析Python的内建类型，比如说整型、浮点型、字符串、列表、字典等，看看它们在Python虚拟机层面是如何用C语言实现的。</p>
 <h1 id="虚拟机">虚拟机</h1>
