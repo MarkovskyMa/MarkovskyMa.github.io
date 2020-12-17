@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python源码深度剖析笔记 | Gridea</title>
-<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1608215077986">
+<link rel="shortcut icon" href="https://markovskyma.github.io/favicon.ico?v=1608215851046">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://markovskyma.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Python源码深度剖析笔记 | Gridea - Atom Feed" href="https://markovskyma.github.io/atom.xml">
@@ -25,7 +25,7 @@ Python确实是一门优雅简洁的语言。这里是《Python源码深度剖�
       <div class="main-content">
         <div class="site-header">
   <a href="https://markovskyma.github.io">
-  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1608215077986" alt="">
+  <img class="avatar" src="https://markovskyma.github.io/images/avatar.png?v=1608215851046" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -163,6 +163,18 @@ Python确实是一门优雅简洁的语言。这里是《Python源码深度剖�
 <li>PyType_Type</li>
 <li>PyBaseObject_Type</li>
 </ul>
+<p>PyObject是所有Python对象（注意，Python中一切皆对象）共有地一个结构体。其中两个成员很重要：</p>
+<ul>
+<li>引用计数，记录引用该对象的变量个数，以此实现垃圾回收。</li>
+<li>类型指针，指向一个类型对象，类型对象也是一个结构体，其中保存着这个类型的相关信息。</li>
+</ul>
+<pre><code class="language-C">typedef struct _object {
+    _PyObject_HEAD_EXTRA
+    Py_ssize_t ob_refcnt;
+    struct _typeobject *ob_type;
+} PyObject;
+</code></pre>
+<p>至于<code>_PyObject_HEAD_EXTRA</code>，这是一个宏，用于生成两个指向<code>_object</code>结构体的指针来实现双向链表。作用是跟踪所有<strong>活跃堆对象</strong>。（这个没有细说）</p>
 <h1 id="内建对象">内建对象</h1>
 <p>本章逐一分析Python的内建类型，比如说整型、浮点型、字符串、列表、字典等，看看它们在Python虚拟机层面是如何用C语言实现的。</p>
 <h1 id="虚拟机">虚拟机</h1>
