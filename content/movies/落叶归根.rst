@@ -39,3 +39,21 @@
 语言：汉语普通话
 
 IMDb :tt0783475
+
+-------------------------------------
+
+|image-1| |image-2|
+
+|image-3| |image-4|
+
+.. |image-1| image:: {static}/images/落叶归根/落叶归根-海报\ (1).jpg
+    :width: 376 px
+
+.. |image-2| image:: {static}/images/落叶归根/落叶归根-海报\ (2).jpg
+    :width: 376 px
+
+.. |image-3| image:: {static}/images/落叶归根/落叶归根-海报\ (3).jpg
+    :width: 376 px
+
+.. |image-4| image:: {static}/images/落叶归根/落叶归根-海报\ (4).jpg
+    :width: 376 px
