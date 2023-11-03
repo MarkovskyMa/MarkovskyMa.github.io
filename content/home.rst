@@ -14,3 +14,5 @@
 还不太懂Pelican静态博客工具和ReStructedText（rst）格式怎么用。
 
 https://docs.getpelican.com/en/latest/index.html
+
+https://docutils.sourceforge.io/rst.html
