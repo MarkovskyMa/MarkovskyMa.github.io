@@ -4,8 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content="Pelican" />
-        <title>呼呼大睡的博客 - 试水</title>
+        <title>搭建自己的博客</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="使用Pelican、GitHub Pages搭建博客，用ReStructuredText写博客。" />
 </head>
 
 <body id="index" class="home">
@@ -13,13 +14,18 @@
                 <h1><a href="/">呼呼大睡的博客</a></h1>
                 <nav><ul>
                     <li><a href="/category/dian-ying.html">电影</a></li>
-                    <li><a href="/category/gong-ju.html">工具</a></li>
+                    <li class="active"><a href="/category/gong-ju.html">工具</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/build blog for myself.html" rel="bookmark"
+           title="Permalink to 搭建自己的博客">搭建自己的博客</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/my-first-post.html">搭建自己的博客</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2023-11-03T00:00:00+08:00">
                 Published: 周五 03 十一月 2023
@@ -33,12 +39,18 @@
                 By                         <a class="url fn" href="/author/hu-hu-da-shui.html">呼呼大睡</a>
         </address>
 <p>In <a href="/category/gong-ju.html">工具</a>.</p>
-<p>tags: <a href="/tag/shi-shui.html">试水</a> </p>
-</footer><!-- /.post-info --><!-- This will be turned into :abbr:`HTML (HyperText Markup Language)`. -->
+<p>tags: <a href="/tag/gong-ju.html">工具</a> <a href="/tag/bo-ke.html">博客</a> </p>
+</footer><!-- /.post-info -->      <!-- This will be turned into :abbr:`HTML (HyperText Markup Language)`. -->
 <p>还不太懂Pelican静态博客工具和ReStructedText（rst）格式怎么用。</p>
 <div class="line-block">
 <div class="line">Pelican文档和教程：</div>
 <div class="line"><a class="reference external" href="https://docs.getpelican.com/en/latest/index.html">https://docs.getpelican.com/en/latest/index.html</a></div>
+</div>
+<div class="line-block">
+<div class="line">GitHub Pages使用方法：</div>
+<div class="line"><a class="reference external" href="https://pages.github.com/">https://pages.github.com/</a></div>
+<div class="line">在一个仓库中建立两个分支，一个存放Pelican要求的写作内容和配置文件，另一个存放输出的静态站点文件：包括HTML、CSS、图片等。</div>
+<div class="line">实际使用中用两个目录分别存放，记得修改`pelicanconf.py`中的输出目录。</div>
 </div>
 <div class="line-block">
 <div class="line">ReStructedText文档和教程：</div>
@@ -46,11 +58,17 @@
 <div class="line"><a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html">https://docutils.sourceforge.io/docs/user/rst/quickref.html</a></div>
 </div>
 <div class="line-block">
+<div class="line"><cite>pelican -r</cite>: 监视内容，即时用pelican生成静态站点文件。</div>
+</div>
+<div class="line-block">
 <div class="line">用Python启动服务器来调试（Pelican --listen不知道咋回事，有问题）：</div>
 <div class="line"><cite>python -m http.server --help</cite></div>
 </div>
-                </article>
-            </aside><!-- /#featured -->
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
