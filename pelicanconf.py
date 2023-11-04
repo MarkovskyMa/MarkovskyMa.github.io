@@ -22,8 +22,7 @@ LINKS = (('Pelican', 'https://getpelican.com/'),
          ('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('邮箱（Email）：2493983815@qq.com', '#'),)
 
 DEFAULT_PAGINATION = 10
 
