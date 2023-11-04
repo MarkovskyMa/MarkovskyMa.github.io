@@ -14,6 +14,8 @@
                 <nav><ul>
                     <li><a href="/category/dian-ying.html">电影</a></li>
                     <li class="active"><a href="/category/gong-ju.html">工具</a></li>
+                    <li><a href="/category/hua-ying.html">画影</a></li>
+                    <li><a href="/category/shi-ci.html">诗词</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -53,10 +55,24 @@
 </div>
 <div class="line-block">
 <div class="line"><cite>pelican -r</cite>: 监视内容，即时用pelican生成静态站点文件。</div>
+<div class="line">用Python启动服务器来调试（pelican --listen不知道咋回事，有问题）：</div>
+<div class="line"><cite>python -m http.server --help</cite></div>
 </div>
 <div class="line-block">
-<div class="line">用Python启动服务器来调试（Pelican --listen不知道咋回事，有问题）：</div>
-<div class="line"><cite>python -m http.server --help</cite></div>
+<div class="line">直接进入Pelican的项目文件夹，因为配置文件中已经写了output文件夹的路径，所以直接用：<cite>pelican -l -r</cite> 一边监听和输出静态站点文件，另一边启动服务器。</div>
+</div>
+<div class="line-block">
+<div class="line">Pelican的生成静态站点的工具就是Jinja2（还是Jinja？）。这个Jinja就是一个模板生成工具，来自Flask后端框架，用来生成HTML的，但是本身也是一个独立的库，所以可以被用来做各种文本的处理和模板的生成，特别是生成HTML、JSON之类的标记语言。</div>
+</div>
+<div class="line-block">
+<div class="line">应该写一个脚本能够自动打包所有的改动提交和推送到GitHub上，不用每次都手动操作了。</div>
+<div class="line">Python有gitpython库用来操作Git，但是也需要安装git，所以还不如直接写一个PowerShell或Bash脚本来操作Git。</div>
+<div class="line">或者，VSCode，以及其他编辑器的Git扩展就解决了……所以是不是伪需求？</div>
+</div>
+<div class="line-block">
+<div class="line">怎么添加一个个人主页？Pelican的设置中似乎有author url的选项？</div>
+<div class="line">在文章的标签中写上邮箱就好了，或者通过metadata来统一设置？</div>
+<div class="line">解决了，就是配置文件pelicanconf.py中的social部分，下载前一部分就行，元组第二部分保留井号。</div>
 </div>
                 </article>
             </aside><!-- /#featured -->
@@ -74,8 +90,7 @@
                         <h2>social</h2>
                         <ul>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
+                            <li><a href="#">邮箱（Email）：2493983815@qq.com</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->
