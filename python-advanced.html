@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Python 精进</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="关于进阶学习Python的记录。" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">呼呼大睡的博客</a></h1>
+                <nav><ul>
+                    <li><a href="/category/dian-ying.html">电影</a></li>
+                    <li><a href="/category/gong-ju.html">工具</a></li>
+                    <li><a href="/category/hua-ying.html">画影</a></li>
+                    <li class="active"><a href="/category/ji-suan-ji.html">计算机</a></li>
+                    <li><a href="/category/shi-ci.html">诗词</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/python-advanced.html" rel="bookmark"
+           title="Permalink to Python 精进">Python 精进</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2023-11-10T00:00:00+08:00">
+                Published: 周五 10 十一月 2023
+        </abbr>
+		<br />
+        <abbr class="modified" title="2023-11-10T11:00:00+08:00">
+                Updated: 周五 10 十一月 2023
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/hu-hu-da-shui.html">呼呼大睡</a>
+        </address>
+<p>In <a href="/category/ji-suan-ji.html">计算机</a>.</p>
+<p>tags: <a href="/tag/gong-ju.html">工具</a> <a href="/tag/bian-cheng.html">编程</a> <a href="/tag/ji-suan-ji.html">计算机</a> <a href="/tag/python.html">Python</a> </p>
+</footer><!-- /.post-info -->      <p><a class="reference external" href="https://mp.weixin.qq.com/s/DpQ88gNuIH9Qqu8l-DeYqg">解密 Python 的作用域和名字空间</a></p>
+<blockquote>
+<p>名字空间是 Python 的灵魂，它规定了一个变量应该如何查找，而名字空间是作用域的动态体现。
+整个 py 文件是一个作用域，也是全局作用域；定义函数、定义类、定义方法，
+又会创建新的作用域，这些作用域层层嵌套。</p>
+<p>那么同理，运行时的名字空间也是层层嵌套的，形成一条名字空间链。
+内层的变量对于外层是不可见的，但外层的变量对内层是可见的。</p>
+<p>然后全局名字空间是一个字典，它是唯一的，操作里面的键值对等价于操作全局变量；</p>
+<p>至于局部名字空间则不唯一，每一个函数都有自己的局部名字空间，
+但我们要知道函数内部在访问变量的时候是静态访问的。</p>
+<p>还有内置名字空间，可以通过 __builtins__ 获取，但拿到的是一个模块，
+再获取它的属性字典，那么就是内置名字空间了。</p>
+</blockquote>
+<p><a class="reference external" href="https://mp.weixin.qq.com/s/7XXxa8vA6Bnz6aQyg5DTkA">一文让你搞懂 Python 虚拟机执行字节码的奥秘</a></p>
+<blockquote>
+以上我们就研究了虚拟机是如何执行字节码的，相信你对 Python 虚拟机也有了更深的了解。
+说白了虚拟机就是把自己当成一颗 CPU，在栈帧中不停地执行字节码指令。
+而执行逻辑就是 _PyEval_EvalFrameDefault 里面的那个大大的 for 循环，
+for 循环里面有一个巨型 switch，case 了所有的分支，不同的分支执行不同的逻辑。</blockquote>
+<div class="section" id="section-1">
+<h2>参考：</h2>
+<p>1. 古明地觉的编程教室。公众号，其中有很多Python相关的内容，特别是进阶内容。
+2.</p>
+</div>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">邮箱（Email）：2493983815@qq.com</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
